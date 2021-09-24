@@ -3,19 +3,15 @@
   <h1>{{ site_name }}</h1>
   <div>
     {% for article in articles %}
-      <div>
-        <h2>
-          <button id="{{ article.id }}">
-            <p>{{ article.name }}</p>
-          </button>
+      <div class="card card{{ article.id }}" tabindex="{{ article.id }}">
+        <h2 class="card-title">
+          <p>{{ article.name }}</p>
         </h2>
-        <div id="collapse{{ article.id }}">
-          <div>
-            <video width="100%" controls>
-              <source src="{{ article.movie_url }}" type="video/mp4"></source>
-            </video>
-          </div>
-        </div>
+      </div>
+      <div class="collaps collaps{{ article.id }}">
+        <video width="100%" controls>
+          <source src="{{ article.movie_url }}" type="video/mp4"></source>
+        </video>
       </div>
     {% endfor %}
   </div>
