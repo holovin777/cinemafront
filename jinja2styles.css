@@ -18,15 +18,3 @@ body {
 .collaps {
   display: none;
 }
-
-{% for article in articles %}
-.card{{ article.id }}:focus ~ .collaps{{ article.id }} {
-  display: block;
-}
-{% endfor %}
-
-{% for article in articles %}
-.collaps{{ article.id }}:focus {
-  display: block;
-}
-{% endfor %}

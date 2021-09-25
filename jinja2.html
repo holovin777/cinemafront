@@ -3,14 +3,28 @@
   <h1>{{ site_name }}</h1>
   <div>
     {% for article in articles %}
-      <div class="card card{{ article.id }}" tabindex="{{ article.id }}">
-        <h2 class="card-title">
-          <p>{{ article.name }}</p>
-        </h2>
+      <div>
+        <div onClick="articleOpen('collaps{{ article.id }}')" class="card">
+          <h2 class="card-title">
+            <p>{{ article.name }}</p>
+          </h2>
+        </div>
+        <div>
+          <video controls class="collaps" id="collaps{{ article.id }}">
+            <source src="{{ article.movie_url }}" type="video/mp4"></source>
+          </video>
+        </div>
       </div>
-        <video width="100%" controls class="collaps collaps{{ article.id }}">
-          <source src="{{ article.movie_url }}" type="video/mp4"></source>
-        </video>
     {% endfor %}
   </div>
+<script>
+function articleOpen(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("collaps") == -1) {
+    x.className += "collaps";
+  } else { 
+    x.className = x.className.replace("collaps", "");
+  }
+}
+</script>
 {% endblock %}
