@@ -8,11 +8,9 @@
           <p>{{ article.name }}</p>
         </h2>
       </div>
-      <div class="collaps collaps{{ article.id }}">
-        <video width="100%" controls>
+        <video width="100%" controls class="collaps collaps{{ article.id }}">
           <source src="{{ article.movie_url }}" type="video/mp4"></source>
         </video>
-      </div>
     {% endfor %}
   </div>
 {% endblock %}

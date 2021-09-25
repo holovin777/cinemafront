@@ -24,3 +24,9 @@ body {
   display: block;
 }
 {% endfor %}
+
+{% for article in articles %}
+.collaps{{ article.id }}:focus {
+  display: block;
+}
+{% endfor %}
