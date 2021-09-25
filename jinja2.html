@@ -3,17 +3,13 @@
   <h1>{{ site_name }}</h1>
   <div>
     {% for article in articles %}
-      <div>
-        <div onClick="articleOpen('collaps{{ article.id }}')" class="card">
-          <h2 class="card-title">
-            <p>{{ article.name }}</p>
-          </h2>
-        </div>
-        <div>
-          <video width="100%" controls class="collaps" id="collaps{{ article.id }}">
-            <source src="{{ article.movie_url }}" type="video/mp4"></source>
-          </video>
-        </div>
+      <div onClick="articleOpen('collaps{{ article.id }}')" class="card">
+        <h2 class="card-title">
+          <p>{{ article.name }}</p>
+        </h2>
+        <video width="100%" controls class="collaps" id="collaps{{ article.id }}">
+          <source src="{{ article.movie_url }}" type="video/mp4"></source>
+        </video>
       </div>
     {% endfor %}
   </div>
