@@ -4,9 +4,9 @@
   <div>
     {% for article in articles %}
       <div onClick="articleOpen('collaps{{ article.id }}')" class="card">
-        <h2 class="card-title">
+        <h3 class="card-title">
           <p>{{ article.name }}</p>
-        </h2>
+        </h3>
         <video width="100%" controls class="collaps" id="collaps{{ article.id }}">
           <source src="{{ article.movie_url }}" type="video/mp4"></source>
         </video>
