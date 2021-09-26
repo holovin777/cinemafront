@@ -29,7 +29,4 @@ with open(".www/conf.json", "r") as conf_file:
         styles_output = open(".www/styles.css", "w")
         styles_output.write(styles.render( articles = articles_api))
         if site_conf["auto_push"] == True:
-            subprocess.call("cd .www", shell=True)
-            subprocess.run(["git", "add", "."])
-            subprocess.run(["git", "commit", "-m", "'AutoPush'"])
-            subprocess.run(["git", "push"])
+            subprocess.call("cd .www && git add . && git commit -m 'AutoPush' && git push", shell=True)
