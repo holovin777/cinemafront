@@ -1,26 +1,30 @@
 {% extends "base.html" %}
 {% block body %}
-  <h1>{{ site_name }}</h1>
+  <a class="siteNameLink" href="#">
+    <h1>{{ site_name }}</h1>
+  </a>
   <div>
     {% for article in articles %}
-      <div onClick="articleOpen('collaps{{ article.id }}')" class="card">
+    <div class="card" id="{{ article.name }}">
+      <a class="articleLink" href="#{{ article.name }}" onClick="articleOpen('collaps{{ article.id }}')">
         <h3 class="card-title">
-          <p>{{ article.name }}</p>
+          {{ article.name }}
         </h3>
-        <video width="100%" controls class="collaps" id="collaps{{ article.id }}">
-          <source src="{{ article.movie_url }}" type="video/mp4"></source>
-        </video>
-      </div>
+      </a>
+      <video width="100%" controls class="collaps" id="collaps{{ article.id }}">
+        <source src="{{ article.movie_url }}" type="video/mp4"></source>
+      </video>
+    </div>
     {% endfor %}
   </div>
-<script>
-function articleOpen(id) {
-  var x = document.getElementById(id);
-  if (x.className.indexOf("collaps") == -1) {
-    x.className += "collaps";
-  } else { 
-    x.className = x.className.replace("collaps", "");
-  }
-}
-</script>
+  <script>
+    function articleOpen(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("collaps") == -1) {
+        x.className += "collaps";
+      } else { 
+        x.className = x.className.replace("collaps", "");
+      }
+    }
+  </script>
 {% endblock %}

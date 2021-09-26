@@ -18,3 +18,43 @@ body {
 .collaps {
   display: none;
 }
+
+.articleLink {
+  color: white;
+}
+
+.articleLink:link {
+  text-decoration: none;
+}
+
+.articleLink:visited {
+  text-decoration: none;
+}
+
+.articleLink:hover {
+  text-decoration: none;
+}
+
+.articleLink:active {
+  text-decoration: none;
+}
+
+.siteNameLink {
+  color: white;
+}
+
+.siteNameLink:link {
+  text-decoration: none;
+}
+
+.siteNameLink:visited {
+  text-decoration: none;
+}
+
+.siteNameLink:hover {
+  text-decoration: none;
+}
+
+.siteNameLink:active {
+  text-decoration: none;
+}
