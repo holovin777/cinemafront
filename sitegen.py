@@ -26,7 +26,12 @@ with open(".www/conf.json", "r") as conf_file:
         styles = env.get_template("jinja2styles.css")
         index_output = open(".www/index.html", "w")
         index_output.write(template.render(site_name = site_conf["site_name"], articles = articles_api))
+        index_output.close()
         styles_output = open(".www/styles.css", "w")
         styles_output.write(styles.render( articles = articles_api))
+        styles_output.close()
         if site_conf["auto_push"] == True:
-            subprocess.call("cd .www && git add . && git commit -m 'AutoPush' && git push", shell=True)
+            os.chdir(".www")
+            subprocess.run(["git", "add", "."])
+            subprocess.run(["git", "commit", "-m", "'AutoPush'"])
+            subprocess.run(["git", "push"])
