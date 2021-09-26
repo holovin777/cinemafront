@@ -7,7 +7,7 @@ if not os.path.isdir(".www"):
     os.mkdir(".www")
     api_url = input("Your API url: ")
     site_name = input("Your site name: ")
-    site_conf = { "site_name": site_name, "api_url": api_url, "auto_push": False }
+    site_conf = { "site_name": site_name, "api_url": api_url, "auto_push": false }
     with open(".www/conf.json", "w") as conf_file:
         json.dump(site_conf, conf_file)
 
@@ -29,7 +29,7 @@ with open(".www/conf.json", "r") as conf_file:
         styles_output = open(".www/styles.css", "w")
         styles_output.write(styles.render( articles = articles_api))
         if site_conf["auto_push"] == True:
-            subprocess.run(["cd", ".www"], shell=True)
+            subprocess.call("cd .www", shell=True)
             subprocess.run(["git", "add", "."])
             subprocess.run(["git", "commit", "-m", "'AutoPush'"])
             subprocess.run(["git", "push"])
