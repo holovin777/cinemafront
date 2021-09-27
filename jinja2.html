@@ -11,21 +11,25 @@
           {{ article.name }}
         </h3>
       </a>
-      {% if article.movie_url %}
-      <video width="100%" controls class="collaps" id="collaps{{ article.id }}">
-        <source src="{{ article.movie_url }}" type="video/mp4"></source>
-      </video>
-      {% endif %}
     </div>
+      {% if article.movie_url %}
+      <div class="collaps" id="collaps{{ article.id }}">
+        <h2 class="articleTitle">{{ article.name }}</h2>
+        <video width="100%" controls>
+          <source src="{{ article.movie_url }}" type="video/mp4"></source>
+        </video>
+      </div>
+      {% endif %}
     {% endfor %}
   </div>
   <script>
     function articleOpen(id) {
-      var x = document.getElementById(id);
-      if (x.className.indexOf("collaps") == -1) {
-        x.className += "collaps";
-      } else { 
-        x.className = x.className.replace("collaps", "");
+      const x = document.getElementById(id);
+      x.className = x.className.replace("collaps", "");
+      const card = document.getElementsByClassName("card");
+      let fLen = card.length;
+      for (let i = 0; i < fLen; i++) {
+        card[i].classList.add("collaps")
       }
     }
   </script>

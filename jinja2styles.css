@@ -15,6 +15,11 @@ body {
   overflow: auto;
 }
 
+.articleTitle {
+  text-align: center;
+  overflow: auto;
+}
+
 .collaps {
   display: none;
 }
