@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Static genereted folder
-.www/
+www/
