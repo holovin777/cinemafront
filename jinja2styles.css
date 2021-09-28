@@ -10,7 +10,7 @@ body {
   background-color: #252525;
 }
 
-.cardTitle {
+.menuItemTitle {
   text-align: center;
   overflow: auto;
 }
@@ -18,6 +18,12 @@ body {
 .articleTitle {
   text-align: center;
   overflow: auto;
+}
+
+.video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .invisible {
