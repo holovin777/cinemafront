@@ -3,14 +3,14 @@ body {
 	color: white;
 }
 
-.card {
+.menuItem {
   margin: 5px 5px 25px 5px;
   padding: 10px;
   border-radius: 10px;
   background-color: #252525;
 }
 
-.card-title {
+.cardTitle {
   text-align: center;
   overflow: auto;
 }
@@ -20,7 +20,7 @@ body {
   overflow: auto;
 }
 
-.collaps {
+.invisible {
   display: none;
 }
 

@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 {% block body %}
-  <a class="siteNameLink" href="/">
+  <a class="siteNameLink" href="#" onClick="menuOpen()">
     <h1>{{ site_name }}</h1>
   </a>
-  <div>
+  <div class="menu">
     {% for article in articles %}
-    <div class="card" id="{{ article.name }}">
-      <a class="articleLink" href="#{{ article.name }}" onClick="articleOpen('collaps{{ article.id }}')">
-        <h3 class="card-title">
+    <div class="menuItem" id="{{ article.name }}">
+      <a class="articleLink" href="#{{ article.name }}" onClick="articleDetailOpen('articleDetail{{ article.id }}')">
+        <h3 class="cardTitle">
           {{ article.name }}
         </h3>
       </a>
     </div>
       {% if article.movie_url %}
-      <div class="collaps" id="collaps{{ article.id }}">
+      <div class="articleDetail invisible" id="articleDetail{{ article.id }}">
         <h2 class="articleTitle">{{ article.name }}</h2>
         <video width="100%" controls>
           <source src="{{ article.movie_url }}" type="video/mp4"></source>
@@ -23,13 +23,27 @@
     {% endfor %}
   </div>
   <script>
-    function articleOpen(id) {
-      const x = document.getElementById(id);
-      x.className = x.className.replace("collaps", "");
-      const card = document.getElementsByClassName("card");
-      let fLen = card.length;
+    function articleDetailOpen(articleId) {
+      const articleDetail = document.getElementById(articleId);
+      articleDetail.classList.remove("invisible");
+      const menu = document.getElementsByClassName("menuItem");
+      let fLen = menu.length;
       for (let i = 0; i < fLen; i++) {
-        card[i].classList.add("collaps")
+        menu[i].classList.add("invisible")
+      }
+    }
+
+    function menuOpen() {
+      const menu = document.getElementsByClassName("menuItem");
+      const articlesDetail = document.getElementsByClassName("articleDetail");
+      let articlesDetailLen = articlesDetail.length;
+      for (let i = 0; i < articlesDetailLen; i++) {
+        articlesDetail[i].classList.add("invisible");
+	articlesDetail[i].children[1].pause();
+      }
+      let menuLen = menu.length;
+      for (let i = 0; i < menuLen; i++) {
+        menu[i].classList.remove("invisible")
       }
     }
   </script>
