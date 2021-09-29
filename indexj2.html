@@ -18,6 +18,15 @@
         <video class="video" width="90%" controls>
           <source src="{{ article.movie_url }}" type="video/mp4"></source>
         </video>
+	<div class="summary">
+	  <p><h4>{{ article.summary }}</h4></p>
+	</div>
+	<div class="plot">
+	  {% if article.plot %}
+	  <h2>Trama</h2>
+	  <p>{{ article.plot }}</p>
+	  {% endif %}
+	</div>
       </div>
       {% endif %}
     {% endfor %}

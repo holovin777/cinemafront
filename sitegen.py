@@ -25,8 +25,8 @@ with open("www/conf.json", "r") as conf_file:
             articles_api.append(data[i])
             i += 1
         env = Environment(loader = FileSystemLoader("./"))
-        template = env.get_template("jinja2.html")
-        styles = env.get_template("jinja2styles.css")
+        template = env.get_template("indexj2.html")
+        styles = env.get_template("stylesj2.css")
         index_output = open("www/index.html", "w")
         index_output.write(template.render(site_name = site_conf["site_name"], articles = articles_api))
         index_output.close()

@@ -1,6 +1,7 @@
 body {
   background-color: black;
-	color: white;
+  color: white;
+  font-size: 125%;
 }
 
 .menuItem {
