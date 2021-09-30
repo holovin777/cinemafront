@@ -40,6 +40,8 @@
       for (let i = 0; i < fLen; i++) {
         menu[i].classList.add("invisible")
       }
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
     function menuOpen() {
