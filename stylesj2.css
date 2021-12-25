@@ -52,7 +52,7 @@ body {
 }
 
 .siteNameLink {
-  color: white;
+  color: #38FA3D;
 }
 
 .siteNameLink:link {
@@ -69,4 +69,10 @@ body {
 
 .siteNameLink:active {
   text-decoration: none;
+}
+
+.back {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
 }

@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block body %}
-  <a class="siteNameLink" href="#" onClick="menuOpen()">
+  <div class="siteNameLink" onClick="menuOpen()">
     <h1>{{ site_name }}</h1>
-  </a>
+  </div>
   <div class="menu">
     {% for article in articles %}
     <div class="menuItem" id="{{ article.name }}">
-      <a class="articleLink" href="#{{ article.name }}" onClick="articleDetailOpen('articleDetail{{ article.id }}')">
+      <div class="articleLink" onClick="articleDetailOpen('articleDetail{{ article.id }}')">
         <h3 class="menuItemTitle">
           {{ article.name }}
         </h3>
-      </a>
+      </div>
     </div>
       {% if article.movie_url %}
       <div class="articleDetail invisible" id="articleDetail{{ article.id }}">
@@ -31,10 +31,13 @@
       {% endif %}
     {% endfor %}
   </div>
+  <img id="backButton" class="back invisible" src="back.svg" height="45" onClick="menuOpen()">
   <script>
     function articleDetailOpen(articleId) {
       const articleDetail = document.getElementById(articleId);
       articleDetail.classList.remove("invisible");
+      const backButton = document.getElementById("backButton");
+      backButton.classList.remove("invisible");
       const menu = document.getElementsByClassName("menuItem");
       let fLen = menu.length;
       for (let i = 0; i < fLen; i++) {
@@ -56,6 +59,8 @@
       for (let i = 0; i < menuLen; i++) {
         menu[i].classList.remove("invisible")
       }
+      const backButton = document.getElementById("backButton");
+      backButton.classList.add("invisible");
     }
   </script>
 {% endblock %}

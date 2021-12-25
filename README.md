@@ -10,9 +10,9 @@ sudo pacman -S caddy
 git clone https://github.com/holovin777/sitegen.git
 cd sitegen
 ```
-Create new repository `www`.
+Create new repository `cinemawww`.
 ```bash
-git clone git@github.com:<your_user>/www.git
+git clone git@github.com:<your_user>/cinemawww.git
 ```
 ```bash
 python -m venv venv
@@ -20,6 +20,6 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 python sitegen.py
-cd www
+cd cinemawww
 caddy file-server --listen :3000
 ```
